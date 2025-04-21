@@ -3,6 +3,8 @@
 ## 📌 Project Overview
 This project demonstrates an end-to-end ETL (Extract, Transform, Load) pipeline using Python and SQL to analyze retail order data. The analysis includes revenue trends, product performance, category insights, and customer segments. 
 
+Dataset link - "https://www.kaggle.com/datasets/ankitbansal06/retail-orders"
+
 Technologies used:
 - **Python (Pandas, NumPy, SQLAlchemy)**
 - **SQL**
@@ -22,49 +24,6 @@ Unnecessary columns are dropped, missing values are handled, and data is formatt
 Transformed data is loaded into an SQLite database, where queries are used for insight generation.
 
 ---
-
-## 🧮 SQL Queries and Outputs
-
-> ℹ️ *Below are the queries used to analyze the dataset. Outputs are to be added as images or markdown tables.*
-
----
-
-### 🔝 Top 10 Revenue-Generating Products
-
-```sql
-SELECT product_name, SUM(sale_price) AS total_sales
-FROM df_orders
-GROUP BY product_name
-ORDER BY total_sales DESC
-LIMIT 10;
-OUTPUT:("Screenshot 2025-04-22 005704.png")
-🛍️ Most Popular Categories by Quantity Sold
-sql
-Copy
-Edit
-SELECT category, SUM(quantity) AS total_quantity
-FROM df_orders
-GROUP BY category
-ORDER BY total_quantity DESC;
-
-🌍 Revenue and Profit by Region
-sql
-Copy
-Edit
-SELECT region, SUM(sale_price) AS total_revenue, SUM(profit) AS total_profit
-FROM df_orders
-GROUP BY region;
-
-
-📦 Profit Margin by Product
-sql
-Copy
-Edit
-SELECT product_name, ROUND(SUM(profit) / SUM(sale_price) * 100, 2) AS profit_margin_percent
-FROM df_orders
-GROUP BY product_name
-ORDER BY profit_margin_percent DESC
-LIMIT 10;
 
 
 ✅ Conclusion
