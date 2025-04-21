@@ -37,8 +37,7 @@ FROM df_orders
 GROUP BY product_name
 ORDER BY total_sales DESC
 LIMIT 10;
-
-
+OUTPUT:("Screenshot 2025-04-22 005704.png")
 🛍️ Most Popular Categories by Quantity Sold
 sql
 Copy
